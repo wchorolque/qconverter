@@ -5,7 +5,7 @@
 
 qreal convertCelciusToFahrenheit(qreal celsius)
 {
-    return celsius;
+    return (celsius * 9) / 5 + 32;
 }
 
 int main(int argc, char *argv[])
