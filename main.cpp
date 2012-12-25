@@ -1,7 +1,21 @@
 #include <QCoreApplication>
 #include <QtGui>
+#include <QtCore/QTextStream>
 
 #include <cstdlib>
+
+qreal convertCelciusToFahrenheit(qreal);
+void printTable(qreal);
+
+void printTable(qreal increment)
+{
+    QTextStream cout(stdout);
+
+    for (qreal value = 0; value <= 100; value+= increment) {
+        qreal fahrenheit = convertCelciusToFahrenheit(value);
+        cout << " Celsius: " << value << " -> " << fahrenheit << endl;
+    }
+}
 
 qreal convertCelciusToFahrenheit(qreal celsius)
 {
@@ -28,6 +42,7 @@ int main(int argc, char *argv[])
 
         if (true == ok) {
             qreal fahrenheit = convertCelciusToFahrenheit(celsius);
+            printTable(5);
             QString response = QString(
                         "The value from celsius %1 to Fahrenheit is %2\n%3")
                     .arg(celsius)
